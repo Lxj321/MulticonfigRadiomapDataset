@@ -5,7 +5,7 @@ A benchmark project for **multi-configuration radiomap prediction** in **U6G / X
 > **Preview mode:** This website is currently in a pre-release state.  
 > Public release of the dataset, code, pretrained models, and paper links will be announced later.
 
-[Dataset](dataset.md) [Quickstart](quickstart.md){ .md-button } [Benchmark](benchmark.md){ .md-button } [Pretrained](pretrained.md){ .md-button }
+[Dataset](dataset.md) [Quickstart](quickstart.md) [Benchmark](benchmark.md) [Pretrained](pretrained.md)
 
 ---
 
