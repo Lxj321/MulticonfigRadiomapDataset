@@ -1,31 +1,30 @@
-# U6G XL-MIMO Radiomap Prediction Dataset
+# U6G XL-MIMO Radiomap Prediction: Multi-config Dataset & Beam Map Approach
 
-Official dataset and benchmark for **U6G XL-MIMO radiomap prediction under multiple base-station configurations**.
+A benchmark dataset for **multi-configuration radiomap prediction** in U6G/XL-MIMO systems, featuring **800 scenes**, **multi-frequency**, **multi-antenna** and **multi-beam** settings.
 
----
-
-## Overview
-
-This project provides a large-scale radiomap prediction dataset including:
-
-- 800 environments
-- Multiple frequencies: 1.8 / 2.6 / 3.5 / 4.9 / 6.7 GHz
-- Up to 1024 transmit antennas
-- Up to 64 beams
-- Ray-tracing generated radiomaps
+[Dataset](dataset.md){ .md-button } [Quickstart](quickstart.md){ .md-button } [Benchmark](benchmark.md){ .md-button } [Pretrained](pretrained.md){ .md-button }
 
 ---
 
-## Dataset Structure
+## What’s included
 
-Dataset/
-
-- beam_maps
-- configs
-- height_maps
-- radiomaps
-- sionna_maps
+- **Dataset** (`Dataset/`): height maps, radiomaps, configuration-only beam maps, optional mesh assets  
+- **Baselines**: UNet and GAN training/evaluation scripts  
+- **Pretrained models** (`Pretrained_Model/`): GAN (8 tasks) + UNet checkpoints  
+- **Dataset generation**: OSM → Sionna meshes → height maps → RT radiomaps → beam maps
 
 ---
 
-More documentation will be added soon.
+## Quick facts
+
+- Scenes: **800** (`u1..u800`)
+- Frequencies: **1.8 / 2.6 / 3.5 / 4.9 / 6.7 GHz**
+- TX antennas: up to **1024 TR**
+- Beams: **1 / 8 / 16 / 64**
+- Beam pattern: **TR38.901**
+
+---
+
+## Repo status
+
+This website is being finalized. Please check **Quickstart** for running pretrained evaluation.
