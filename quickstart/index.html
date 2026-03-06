@@ -1,0 +1,711 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-configuration radiomap prediction dataset and pretrained baselines">
+      
+      
+        <meta name="author" content="Lxj321">
+      
+      
+      
+        <link rel="prev" href="../dataset/">
+      
+      
+        <link rel="next" href="../benchmark/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Quickstart - U6G XL-MIMO Radiomap Prediction Dataset</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quickstart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="U6G XL-MIMO Radiomap Prediction Dataset" class="md-header__button md-logo" aria-label="U6G XL-MIMO Radiomap Prediction Dataset" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            U6G XL-MIMO Radiomap Prediction Dataset
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quickstart
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dataset/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Dataset
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quickstart
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../benchmark/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Benchmark
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pretrained/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Pretrained Models
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="U6G XL-MIMO Radiomap Prediction Dataset" class="md-nav__button md-logo" aria-label="U6G XL-MIMO Radiomap Prediction Dataset" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    U6G XL-MIMO Radiomap Prediction Dataset
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pretrained/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pretrained Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
+<p>This page shows how to prepare the dataset and pretrained checkpoints, and how to run the provided evaluation scripts.</p>
+<hr />
+<h1 id="1-prepare-dataset-and-pretrained-weights">1. Prepare Dataset and Pretrained Weights<a class="headerlink" href="#1-prepare-dataset-and-pretrained-weights" title="Permanent link">&para;</a></h1>
+<p>Place the dataset and pretrained models under the project root as:</p>
+<div class="highlight"><pre><span></span><code>&lt;project_root&gt;/
+  Dataset/
+    radiomaps/
+    height_maps/
+    beam_maps/
+    configs/
+    sionna_maps/          # optional
+  Pretrained_Model/
+    GAN/
+      ...
+    Unet/
+      ...
+</code></pre></div>
+<p>The provided scripts assume these default paths.</p>
+<hr />
+<h1 id="2-evaluate-pretrained-unet">2. Evaluate Pretrained UNet<a class="headerlink" href="#2-evaluate-pretrained-unet" title="Permanent link">&para;</a></h1>
+<p>The UNet evaluation script uses a built-in configuration class (<code>EvalConfig</code>) and does <strong>not</strong> require command-line arguments.</p>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>ModelEvaluation_Unet.py
+</code></pre></div>
+<p>By default, the script uses:</p>
+<ul>
+<li><code>Dataset/radiomaps</code></li>
+<li><code>Dataset/height_maps</code></li>
+<li><code>Dataset/beam_maps</code></li>
+</ul>
+<p>and evaluates a predefined list of UNet checkpoints under:</p>
+<ul>
+<li><code>Pretrained_Model/Unet/</code></li>
+</ul>
+<p>The script also uses:</p>
+<ul>
+<li><code>RANDOM_SEED = 42</code></li>
+<li><code>TRAIN_RATIO = 0.7</code></li>
+<li><code>VAL_RATIO = 0.1</code></li>
+<li><code>TEST_RATIO = 0.2</code></li>
+<li><code>BATCH_SIZE = 64</code></li>
+</ul>
+<p>Results are saved to:</p>
+<div class="highlight"><pre><span></span><code>evaluation_results/
+</code></pre></div>
+<p>Generated outputs include:</p>
+<ul>
+<li><code>evaluation_summary_dB.csv</code></li>
+<li><code>metrics_comparison_dB.png</code></li>
+<li><code>{model_name}_visualization.png</code></li>
+</ul>
+<blockquote>
+<p>Notes:</p>
+<ul>
+<li>Metrics are computed in the <strong>dB domain</strong>.</li>
+<li>Buildings and invalid regions are excluded.</li>
+<li>SSIM is computed only on valid regions.</li>
+</ul>
+</blockquote>
+<hr />
+<h1 id="3-evaluate-pretrained-gan">3. Evaluate Pretrained GAN<a class="headerlink" href="#3-evaluate-pretrained-gan" title="Permanent link">&para;</a></h1>
+<p>The GAN evaluation script is currently provided in a <strong>Jupyter / notebook-style</strong> format.</p>
+<p>Its default paths are:</p>
+<ul>
+<li><code>Dataset/radiomaps</code></li>
+<li><code>Dataset/height_maps</code></li>
+<li><code>Dataset/beam_maps</code></li>
+</ul>
+<p>and the experiment directory is:</p>
+<div class="highlight"><pre><span></span><code>Pretrained_Model/GAN
+</code></pre></div>
+<h2 id="option-a-run-as-a-python-script">Option A: Run as a Python script<a class="headerlink" href="#option-a-run-as-a-python-script" title="Permanent link">&para;</a></h2>
+<p>Because the file ends with a direct call to:</p>
+<div class="highlight"><pre><span></span><code><span class="n">run_evaluation</span><span class="p">()</span>
+</code></pre></div>
+<p>you can run:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>ModelEvaluation_GAN.py
+</code></pre></div>
+<p>This will evaluate all discovered GAN experiments under:</p>
+<div class="highlight"><pre><span></span><code>Pretrained_Model/GAN/
+</code></pre></div>
+<p>and save summary files such as:</p>
+<ul>
+<li><code>Pretrained_Model/GAN/evaluation_summary.json</code></li>
+<li><code>Pretrained_Model/GAN/evaluation_summary.csv</code></li>
+</ul>
+<h2 id="option-b-use-in-jupyter-notebook">Option B: Use in Jupyter Notebook<a class="headerlink" href="#option-b-use-in-jupyter-notebook" title="Permanent link">&para;</a></h2>
+<p>You can also copy the script into a notebook cell and run:</p>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="n">run_evaluation</span><span class="p">()</span>
+</code></pre></div>
+<p>Useful variants:</p>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="n">run_evaluation</span><span class="p">(</span><span class="n">single</span><span class="o">=</span><span class="s1">&#39;random_dense_feature&#39;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_evaluation</span><span class="p">(</span><span class="n">visualize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h1 id="4-supported-gan-tasks">4. Supported GAN Tasks<a class="headerlink" href="#4-supported-gan-tasks" title="Permanent link">&para;</a></h1>
+<p>The GAN evaluator is aligned with the following task folders:</p>
+<ul>
+<li><code>beam_dense_encoding</code></li>
+<li><code>beam_dense_feature</code></li>
+<li><code>random_dense_encoding</code></li>
+<li><code>random_dense_feature</code></li>
+<li><code>random_sparse_encoding_samples819</code></li>
+<li><code>random_sparse_feature_samples819</code></li>
+<li><code>scene_dense_encoding</code></li>
+<li><code>scene_dense_feature</code></li>
+</ul>
+<p>These are automatically detected from subfolders containing <code>best_G.pth</code>.</p>
+<hr />
+<h1 id="5-important-notes">5. Important Notes<a class="headerlink" href="#5-important-notes" title="Permanent link">&para;</a></h1>
+<h2 id="unet-script-behavior">UNet script behavior<a class="headerlink" href="#unet-script-behavior" title="Permanent link">&para;</a></h2>
+<p><code>ModelEvaluation_Unet.py</code> evaluates a predefined model list from <code>EvalConfig.MODELS</code>.</p>
+<p>If you want to:</p>
+<ul>
+<li>evaluate only one checkpoint</li>
+<li>change paths</li>
+<li>change split strategy</li>
+<li>add/remove models</li>
+</ul>
+<p>please edit the corresponding entries in <code>EvalConfig</code>.</p>
+<h2 id="gan-script-behavior">GAN script behavior<a class="headerlink" href="#gan-script-behavior" title="Permanent link">&para;</a></h2>
+<p><code>ModelEvaluation_GAN.py</code> automatically scans <code>Pretrained_Model/GAN/</code> and evaluates experiment folders that contain:</p>
+<div class="highlight"><pre><span></span><code>best_G.pth
+</code></pre></div>
+<p>It infers task settings from either:</p>
+<ul>
+<li>predefined <code>EXPERIMENT_CONFIGS</code></li>
+<li><code>config.json</code></li>
+<li>or folder naming rules</li>
+</ul>
+<hr />
+<h1 id="6-common-issues">6. Common Issues<a class="headerlink" href="#6-common-issues" title="Permanent link">&para;</a></h1>
+<h2 id="file-not-found">File not found<a class="headerlink" href="#file-not-found" title="Permanent link">&para;</a></h2>
+<p>Check that the following folders exist exactly as expected:</p>
+<ul>
+<li><code>Dataset/radiomaps</code></li>
+<li><code>Dataset/height_maps</code></li>
+<li><code>Dataset/beam_maps</code></li>
+<li><code>Pretrained_Model/GAN</code></li>
+<li><code>Pretrained_Model/Unet</code></li>
+</ul>
+<h2 id="gpu-selection">GPU selection<a class="headerlink" href="#gpu-selection" title="Permanent link">&para;</a></h2>
+<p>The UNet evaluation script sets:</p>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+</code></pre></div>
+<p>If you need another GPU, modify this value in the script.</p>
+<h2 id="missing-python-packages">Missing Python packages<a class="headerlink" href="#missing-python-packages" title="Permanent link">&para;</a></h2>
+<p>The scripts require packages such as:</p>
+<ul>
+<li><code>torch</code></li>
+<li><code>numpy</code></li>
+<li><code>matplotlib</code></li>
+<li><code>pandas</code></li>
+<li><code>scikit-image</code></li>
+</ul>
+<p>The UNet script also imports:</p>
+<ul>
+<li><code>seaborn</code></li>
+</ul>
+<hr />
+<h1 id="7-recommended-first-run">7. Recommended First Run<a class="headerlink" href="#7-recommended-first-run" title="Permanent link">&para;</a></h1>
+<p>For a first verification, it is recommended to:</p>
+<ul>
+<li>run <code>python ModelEvaluation_Unet.py</code> to evaluate the predefined UNet checkpoints</li>
+<li>run <code>python ModelEvaluation_GAN.py</code> to evaluate all GAN experiment folders</li>
+</ul>
+<p>This provides a quick sanity check that:</p>
+<ul>
+<li>dataset paths are correct</li>
+<li>pretrained checkpoints are correctly placed</li>
+<li>the evaluation pipeline runs end-to-end</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
