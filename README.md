@@ -5,7 +5,7 @@ A benchmark project for **multi-configuration radiomap prediction** in **U6G / X
 
 > **Public release:** The dataset, pretrained models, source code, and project website are now publicly available.
 >
-> -**Paper:**https://arxiv.org/abs/2603.06401
+> - **Paper:** https://arxiv.org/abs/2603.06401
 > - **Dataset & Pretrained Models:** https://huggingface.co/datasets/lxj321/Multi-config-Radiomap-Dataset
 > - **Code Repository:** https://github.com/Lxj321/MulticonfigRadiomapDataset
 > - **Project Website:** https://lxj321.github.io/MulticonfigRadiomapDataset/
