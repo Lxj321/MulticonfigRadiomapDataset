@@ -22,6 +22,7 @@ The released repository is organized around three major workflows:
 2. **benchmark data preparation**
    - load released data into unified dense / sparse learning tasks
    - prepare feature-map or continuous-encoding inputs
+   - define building-mask, valid-mask, and sparse-sampling logic
 
 3. **baseline training and evaluation**
    - train and evaluate released UNet and GAN baselines
@@ -39,6 +40,8 @@ Randomly samples candidate geographic regions, filters them by building count, a
 
 ### `DatasetGeneration_Step2_OSMToSionna.py`
 Converts downloaded OSM data into cropped 3D urban scene XML files for the downstream ray-tracing pipeline.
+
+**Environment note:** this step is intended to run inside a **Blender 4.0 Python environment (`bpy`)** with Mitsuba/XML export support enabled. It is not intended to run in a standard Python interpreter.
 
 ### `DatasetGeneration_Step3_OSMToHeightMap.py`
 Rasterizes OSM building footprints into height maps for geometry-aware learning.
@@ -67,6 +70,12 @@ It supports:
 - feature-map inputs
 - continuous-encoding inputs
 
+It also defines:
+- building-mask extraction
+- valid-region masking
+- sparse sampling-mask generation
+- target normalization
+
 ### `multiconfig_dataset_prepcocess_Unet.py`
 Dataset class and preprocessing pipeline used by the released UNet baselines.
 
@@ -76,6 +85,12 @@ It supports:
 - feature-map inputs
 - continuous-encoding inputs
 - optional use of height-map geometry channels
+
+It also defines:
+- building-mask extraction
+- valid-region masking
+- sparse sampling-mask generation
+- target normalization
 
 ---
 
@@ -91,6 +106,11 @@ Main supported settings:
 - supervision mode: `dense / sparse`
 - condition type: `feature / encoding`
 
+The training pipeline uses:
+- valid-region-aware adversarial loss
+- valid-region-aware reconstruction loss
+- sparse observation injection for sparse tasks
+
 ### `ModelTraining_Unet.py`
 Trains the released UNet baselines.
 
@@ -100,6 +120,12 @@ The implemented UNet baseline follows a two-stage WNet-style design (`RadioWNet`
 - `both`
 
 training modes.
+
+The training pipeline supports:
+- feature-map inputs
+- continuous-encoding inputs
+- dense and sparse settings
+- optional second-stage refinement with the first-stage network frozen
 
 ---
 
@@ -113,7 +139,10 @@ Evaluates released GAN checkpoints and reports benchmark metrics on the test spl
 ### `ModelEvaluation_Unet.py`
 Evaluates released UNet checkpoints and reports benchmark metrics on the test split.
 
-Both evaluators use valid-region-aware metrics and exclude building / invalid regions during the main error computation.
+Both evaluators:
+- use valid-region-aware metrics
+- exclude building and invalid regions during the main error computation
+- report results under the released benchmark settings
 
 ---
 
@@ -137,7 +166,7 @@ This is the fastest way to verify that the released resources are correctly prep
 Recommended order:
 
 1. prepare `Dataset/`
-2. choose benchmark task setting
+2. choose the target benchmark task setting
 3. use the corresponding dataset preprocessing pipeline
 4. run:
    - `ModelTraining_Unet.py`, or
@@ -179,6 +208,7 @@ The released codebase separates different responsibilities clearly:
 - `DatasetGeneration_Step6_BeammapGenerator.py` generates configuration-only beam maps, not ray-tracing radiomaps
 - the dataset preprocessing scripts define how building regions, invalid regions, and valid supervision masks are handled
 - sparse tasks are implemented by returning a sampling mask first, and later constructing sparse observations in the training or evaluation scripts
+- only the scene-conversion step (`DatasetGeneration_Step2_OSMToSionna.py`) requires a Blender 4.0 `bpy` environment
 
 ---
 
@@ -186,7 +216,7 @@ The released codebase separates different responsibilities clearly:
 
 For more details, see:
 
-- **Benchmark**: task definitions and benchmark settings
-- **Dataset**: released data organization and label semantics
-- **Pretrained Models**: checkpoint organization
-- **Quickstart**: fastest evaluation-first workflow
+- **Benchmark** — task definitions and benchmark settings
+- **Dataset** — released data organization and label semantics
+- **Pretrained Models** — checkpoint organization
+- **Quickstart** — fastest evaluation-first workflow
