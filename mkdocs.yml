@@ -17,6 +17,7 @@ nav:
   - Quickstart: quickstart.md
   - Benchmark: benchmark.md
   - Pretrained Models: pretrained.md
+  - Code: code.md
 
 markdown_extensions:
   - tables
