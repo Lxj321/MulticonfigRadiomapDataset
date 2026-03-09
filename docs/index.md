@@ -3,6 +3,7 @@
 A benchmark project for **multi-configuration radiomap prediction** in **U6G / XL-MIMO** systems, featuring **800 scenes**, **multi-frequency**, **multi-antenna**, and **multi-beam** settings.
 
 > **Public release:** The complete dataset, pretrained models, and code are now publicly available.
+> 
 > - **Paper:** https://arxiv.org/abs/2603.06401
 > - **Dataset & Pretrained Models (Hugging Face):** https://huggingface.co/datasets/lxj321/Multi-config-Radiomap-Dataset
 > - **Code Repository (GitHub):** https://github.com/Lxj321/MulticonfigRadiomapDataset
