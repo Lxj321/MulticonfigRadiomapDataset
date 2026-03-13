@@ -31,6 +31,28 @@ A key feature of the release is the joint organization of:
 
 ---
 
+## Dataset Preview
+
+Representative examples from the released U6G XL-MIMO multi-configuration dataset, including height maps, ray-tracing radiomaps, and configuration-only beam maps.
+
+<p align="center">
+  <img src="docs/assets/dataset/homepage_teaser.png" width="82%">
+</p>
+
+## Example Galleries
+
+<p align="center">
+  <img src="docs/assets/dataset/height_maps_grid.png" width="82%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/dataset/radiomaps_grid.png" width="82%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/dataset/beam_maps_grid.png" width="82%">
+</p>
+
 ## Released Resources
 
 The public release includes:
