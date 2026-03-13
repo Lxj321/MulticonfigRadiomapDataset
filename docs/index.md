@@ -13,7 +13,7 @@ This website serves as the documentation portal for the public release accompany
 
 Representative ray-tracing radiomap example from the released multi-configuration dataset.
 
-![Radiomap Example](assets/dataset/radiomap_grid.png)
+![Radiomap Example](assets/dataset/radiomaps_grid.png)
 
 ---
 
